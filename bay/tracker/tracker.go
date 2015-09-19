@@ -80,7 +80,7 @@ func (t *Tracker) ensureTorrentExists(file string) (string, error) {
 	tf := file + ".torrent"
 
 	if _, err := os.Stat(tf); os.IsNotExist(err) {
-		m, err := torrent.CreateMetaInfoFromFileSystem(nil, file, "ShowList", 0, true)
+		m, err := torrent.CreateMetaInfoFromFileSystem(nil, file, "0.0.0.0:8888", 0, true)
 		if err != nil {
 			return tf, err
 		}
