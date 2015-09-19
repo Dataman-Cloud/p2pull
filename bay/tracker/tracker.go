@@ -37,6 +37,7 @@ func NewTracker(listen, trListen, root string, port int) (*Tracker, error) {
 		FileDir:             root,
 		SeedRatio:           math.Inf(0),
 		UseDeadlockDetector: true,
+		FileSystemProvider:  torrent.OsFsProvider{},
 	}
 
 	conns, listenPort, err := torrent.ListenForPeerConnections(flags)
