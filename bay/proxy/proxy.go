@@ -44,7 +44,9 @@ func main() {
 		log.Println("got request:", req.Method, u.String())
 
 		// should be support V2 registry api
-		if req.Method == "PUT" || !strings.HasPrefix(u.Path, "/v1/repositories") {
+		if req.Method == "PUT" ||
+			strings.HasPrefix(u.Path, "/v2/") ||
+			strings.Contains(u.Path, "ping") {
 			pu := u
 			pu.Path = "/"
 			proxy := httputil.NewSingleHostReverseProxy(&pu)
