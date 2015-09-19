@@ -43,7 +43,8 @@ func main() {
 
 		log.Println("got request:", req.Method, u.String())
 
-		if req.Method == "PUT" || !strings.HasPrefix(u.Path, "/v1/images/") || !strings.HasSuffix(u.Path, "/layer") {
+		// should be support V2 registry api
+		if req.Method == "PUT" {
 			pu := u
 			pu.Path = "/"
 			proxy := httputil.NewSingleHostReverseProxy(&pu)
