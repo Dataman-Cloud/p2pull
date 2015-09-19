@@ -9,8 +9,13 @@ Peer-to-peer push/pull between docker hosts on beijing #dockerhackday
 
 ## How to make it work
 
-This was only tested with self-hosted docker registry.
-Docker hub works a little bit differently than self-hosted
+generating the server certificate and private key with OpenSSL takes just one
+command:
+```
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out
+cert.pem
+```
+
 registry to make it work with p2p easily.
 
 Let's run tracker on `192.168.0.1` (`host1`) and proxies on `192.168.0.{2,3,4}` (`host{2,3,4}`).

@@ -117,8 +117,10 @@ func main() {
 		io.Copy(w, l)
 	})
 
-	err = http.ListenAndServe(*listen, mux)
+	cert := "cert.pem"
+	key := "key.pem"
+	err = http.ListenAndServeTLS(*listen, cert, key, mux)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("ListenAndServe: ", err)
 	}
 }
