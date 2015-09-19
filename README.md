@@ -60,3 +60,6 @@ docker pull <my-registry.com>/myimage
 ```
 
 but with p2p magic and unicorns.
+
+# Thanks
+https://github.com/bobrik/bay
