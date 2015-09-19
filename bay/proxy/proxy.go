@@ -93,7 +93,7 @@ func main() {
 
 		err = torrent.RunTorrents(&torrent.TorrentFlags{
 			FileDir:   *root,
-			SeedRatio: 0,
+			SeedRatio: math.Inf(0),
 		}, []string{f.Name()})
 
 		lf := path.Join(*root, m.Info.Name)
