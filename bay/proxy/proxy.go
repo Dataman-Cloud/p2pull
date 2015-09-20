@@ -91,18 +91,17 @@ func main() {
 			http.Error(w, "reading torrent failed", http.StatusInternalServerError)
 			return
 		}
-		log.Printf("get metainfo %v", m)
+		log.Printf("============> get metainfo %p", m)
 
 		err = torrent.RunTorrents(&torrent.TorrentFlags{
 			FileDir:             *root,
 			SeedRatio:           math.Inf(0),
 			UseDeadlockDetector: true,
 			FileSystemProvider:  torrent.OsFsProvider{},
-			UseDHT:              false,
 		}, []string{f.Name()})
 
 		lf := path.Join(*root, m.Info.Name)
-		log.Println("ls path:", lf)
+		log.Println("==============>ls path:", lf)
 
 		defer os.Remove(lf)
 
