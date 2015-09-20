@@ -98,9 +98,9 @@ func main() {
 			SeedRatio:          math.Inf(0),
 			FileSystemProvider: torrent.OsFsProvider{},
 			InitialCheck:       true,
-			MaxActive:          10,
+			MaxActive:          1,
 			ExecOnSeeding:      "",
-			Cacher:             InitialChecktorrent.NewRamCacheProvider(1),
+			Cacher:             torrent.NewRamCacheProvider(1),
 		}, []string{f.Name()})
 
 		lf := path.Join(*root, m.Info.Name)
