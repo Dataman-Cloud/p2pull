@@ -103,6 +103,7 @@ func main() {
 		}, []string{f.Name()})
 
 		lf := path.Join(*root, m.Info.Name)
+		log.Println("ls path:", lf)
 
 		defer os.Remove(lf)
 
