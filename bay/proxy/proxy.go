@@ -94,10 +94,13 @@ func main() {
 		log.Printf("============> get metainfo %p", m)
 
 		err = torrent.RunTorrents(&torrent.TorrentFlags{
-			FileDir:             *root,
-			SeedRatio:           math.Inf(0),
-			UseDeadlockDetector: true,
-			FileSystemProvider:  torrent.OsFsProvider{},
+			FileDir:            *root,
+			SeedRatio:          math.Inf(0),
+			FileSystemProvider: torrent.OsFsProvider{},
+			InitialCheck:       true,
+			MaxActive:          10,
+			ExecOnSeeding:      "",
+			Cacher:             InitialChecktorrent.NewRamCacheProvider(1),
 		}, []string{f.Name()})
 
 		lf := path.Join(*root, m.Info.Name)
