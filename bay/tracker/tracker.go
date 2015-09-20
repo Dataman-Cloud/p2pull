@@ -125,6 +125,7 @@ func (t *Tracker) handleSafely(w http.ResponseWriter, u string) error {
 
 	ts, err := torrent.NewTorrentSession(t.flags, tf, uint16(t.port))
 	if err != nil {
+		log.Println("=========ts.err:", err)
 		return err
 	}
 
